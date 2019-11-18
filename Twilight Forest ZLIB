@@ -1,0 +1,131 @@
+---- Minecraft Crash Report ----
+
+WARNING: coremods are present:
+  CTMCorePlugin (CTM-MC1.12.2-1.0.0.29.jar)
+Contact their authors BEFORE contacting forge
+
+// Everything's going to plan. No, really, that was supposed to happen.
+
+Time: 11/17/19 6:20 PM
+Description: Loading NBT data
+
+java.io.EOFException: Unexpected end of ZLIB input stream
+	at java.util.zip.InflaterInputStream.fill(InflaterInputStream.java:240)
+	at java.util.zip.InflaterInputStream.read(InflaterInputStream.java:158)
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246)
+	at java.io.BufferedInputStream.read1(BufferedInputStream.java:286)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:345)
+	at java.io.DataInputStream.readFully(DataInputStream.java:195)
+	at java.io.DataInputStream.readUTF(DataInputStream.java:609)
+	at java.io.DataInputStream.readUTF(DataInputStream.java:564)
+	at net.minecraft.nbt.NBTTagCompound.func_152448_b(NBTTagCompound.java:487)
+	at net.minecraft.nbt.NBTTagCompound.func_152446_a(NBTTagCompound.java:56)
+	at net.minecraft.nbt.NBTTagList.func_152446_a(NBTTagList.java:63)
+	at net.minecraft.nbt.NBTTagCompound.func_152449_a(NBTTagCompound.java:497)
+	at net.minecraft.nbt.NBTTagCompound.func_152446_a(NBTTagCompound.java:58)
+	at net.minecraft.nbt.NBTTagCompound.func_152449_a(NBTTagCompound.java:497)
+	at net.minecraft.nbt.NBTTagCompound.func_152446_a(NBTTagCompound.java:58)
+	at net.minecraft.nbt.CompressedStreamTools.func_152455_a(CompressedStreamTools.java:133)
+	at net.minecraft.nbt.CompressedStreamTools.func_152456_a(CompressedStreamTools.java:88)
+	at net.minecraft.nbt.CompressedStreamTools.func_74794_a(CompressedStreamTools.java:83)
+	at net.minecraft.world.chunk.storage.AnvilChunkLoader.loadChunk__Async(AnvilChunkLoader.java:89)
+	at net.minecraftforge.common.chunkio.ChunkIOProvider.run(ChunkIOProvider.java:70)
+	at net.minecraftforge.common.chunkio.ChunkIOExecutor.syncChunkLoad(ChunkIOExecutor.java:92)
+	at net.minecraft.world.gen.ChunkProviderServer.loadChunk(ChunkProviderServer.java:118)
+	at net.minecraft.world.gen.ChunkProviderServer.func_186028_c(ChunkProviderServer.java:89)
+	at net.minecraft.server.management.PlayerChunkMapEntry$1.run(PlayerChunkMapEntry.java:39)
+	at net.minecraftforge.common.chunkio.ChunkIOProvider.runCallbacks(ChunkIOProvider.java:134)
+	at net.minecraftforge.common.chunkio.ChunkIOProvider.syncCallback(ChunkIOProvider.java:96)
+	at net.minecraftforge.common.chunkio.ChunkIOExecutor.syncChunkLoad(ChunkIOExecutor.java:94)
+	at net.minecraft.world.gen.ChunkProviderServer.loadChunk(ChunkProviderServer.java:118)
+	at net.minecraft.world.gen.ChunkProviderServer.func_186028_c(ChunkProviderServer.java:89)
+	at net.minecraft.server.management.PlayerChunkMapEntry$1.run(PlayerChunkMapEntry.java:39)
+	at net.minecraftforge.common.chunkio.ChunkIOProvider.runCallbacks(ChunkIOProvider.java:134)
+	at net.minecraftforge.common.chunkio.ChunkIOProvider.syncCallback(ChunkIOProvider.java:96)
+	at net.minecraftforge.common.chunkio.ChunkIOExecutor.tick(ChunkIOExecutor.java:150)
+	at net.minecraft.server.MinecraftServer.func_71190_q(MinecraftServer.java:728)
+	at net.minecraft.server.MinecraftServer.func_71217_p(MinecraftServer.java:668)
+	at net.minecraft.server.integrated.IntegratedServer.func_71217_p(IntegratedServer.java:185)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:526)
+	at java.lang.Thread.run(Thread.java:745)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server thread
+Stacktrace:
+	at java.util.zip.InflaterInputStream.fill(InflaterInputStream.java:240)
+	at java.util.zip.InflaterInputStream.read(InflaterInputStream.java:158)
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246)
+	at java.io.BufferedInputStream.read1(BufferedInputStream.java:286)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:345)
+	at java.io.DataInputStream.readFully(DataInputStream.java:195)
+	at java.io.DataInputStream.readUTF(DataInputStream.java:609)
+	at java.io.DataInputStream.readUTF(DataInputStream.java:564)
+	at net.minecraft.nbt.NBTTagCompound.func_152448_b(NBTTagCompound.java:487)
+	at net.minecraft.nbt.NBTTagCompound.func_152446_a(NBTTagCompound.java:56)
+	at net.minecraft.nbt.NBTTagList.func_152446_a(NBTTagList.java:63)
+
+-- NBT Tag --
+Details:
+	Tag name: Entities
+	Tag type: 9
+Stacktrace:
+	at net.minecraft.nbt.NBTTagCompound.func_152449_a(NBTTagCompound.java:497)
+	at net.minecraft.nbt.NBTTagCompound.func_152446_a(NBTTagCompound.java:58)
+	at net.minecraft.nbt.NBTTagCompound.func_152449_a(NBTTagCompound.java:497)
+	at net.minecraft.nbt.NBTTagCompound.func_152446_a(NBTTagCompound.java:58)
+	at net.minecraft.nbt.CompressedStreamTools.func_152455_a(CompressedStreamTools.java:133)
+	at net.minecraft.nbt.CompressedStreamTools.func_152456_a(CompressedStreamTools.java:88)
+	at net.minecraft.nbt.CompressedStreamTools.func_74794_a(CompressedStreamTools.java:83)
+	at net.minecraft.world.chunk.storage.AnvilChunkLoader.loadChunk__Async(AnvilChunkLoader.java:89)
+	at net.minecraftforge.common.chunkio.ChunkIOProvider.run(ChunkIOProvider.java:70)
+	at net.minecraftforge.common.chunkio.ChunkIOExecutor.syncChunkLoad(ChunkIOExecutor.java:92)
+	at net.minecraft.world.gen.ChunkProviderServer.loadChunk(ChunkProviderServer.java:118)
+	at net.minecraft.world.gen.ChunkProviderServer.func_186028_c(ChunkProviderServer.java:89)
+	at net.minecraft.server.management.PlayerChunkMapEntry$1.run(PlayerChunkMapEntry.java:39)
+	at net.minecraftforge.common.chunkio.ChunkIOProvider.runCallbacks(ChunkIOProvider.java:134)
+	at net.minecraftforge.common.chunkio.ChunkIOProvider.syncCallback(ChunkIOProvider.java:96)
+	at net.minecraftforge.common.chunkio.ChunkIOExecutor.syncChunkLoad(ChunkIOExecutor.java:94)
+	at net.minecraft.world.gen.ChunkProviderServer.loadChunk(ChunkProviderServer.java:118)
+	at net.minecraft.world.gen.ChunkProviderServer.func_186028_c(ChunkProviderServer.java:89)
+	at net.minecraft.server.management.PlayerChunkMapEntry$1.run(PlayerChunkMapEntry.java:39)
+	at net.minecraftforge.common.chunkio.ChunkIOProvider.runCallbacks(ChunkIOProvider.java:134)
+	at net.minecraftforge.common.chunkio.ChunkIOProvider.syncCallback(ChunkIOProvider.java:96)
+	at net.minecraftforge.common.chunkio.ChunkIOExecutor.tick(ChunkIOExecutor.java:150)
+	at net.minecraft.server.MinecraftServer.func_71190_q(MinecraftServer.java:728)
+	at net.minecraft.server.MinecraftServer.func_71217_p(MinecraftServer.java:668)
+	at net.minecraft.server.integrated.IntegratedServer.func_71217_p(IntegratedServer.java:185)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:526)
+	at java.lang.Thread.run(Thread.java:745)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.12.2
+	Operating System: Mac OS X (x86_64) version 10.15.1
+	Java Version: 1.8.0_74, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 248280080 bytes (236 MB) / 905969664 bytes (864 MB) up to 2147483648 bytes (2048 MB)
+	JVM Flags: 7 total; -Xmx2G -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32M
+	IntCache: cache: 0, tcache: 0, allocated: 1, tallocated: 38
+	FML: MCP 9.42 Powered by Forge 14.23.5.2837 6 mods loaded, 6 mods active
+	States: 'U' = Unloaded 'L' = Loaded 'C' = Constructed 'H' = Pre-initialized 'I' = Initialized 'J' = Post-initialized 'A' = Available 'D' = Disabled 'E' = Errored
+
+	| State  | ID             | Version           | Source                                        | Signature                                |
+	|:------ |:-------------- |:----------------- |:--------------------------------------------- |:---------------------------------------- |
+	| LCHIJA | minecraft      | 1.12.2            | minecraft.jar                                 | None                                     |
+	| LCHIJA | mcp            | 9.42              | minecraft.jar                                 | None                                     |
+	| LCHIJA | FML            | 8.0.99.99         | forge-1.12.2-14.23.5.2837.jar                 | e3c3d50c7c986df74c645c0ac54639741c90a557 |
+	| LCHIJA | forge          | 14.23.5.2837      | forge-1.12.2-14.23.5.2837.jar                 | e3c3d50c7c986df74c645c0ac54639741c90a557 |
+	| LCHIJA | ctm            | MC1.12.2-1.0.0.29 | CTM-MC1.12.2-1.0.0.29.jar                     | None                                     |
+	| LCHIJA | twilightforest | 3.10.1013         | twilightforest-1.12.2-3.10.1013-universal.jar | None                                     |
+
+	Loaded coremods (and transformers): 
+CTMCorePlugin (CTM-MC1.12.2-1.0.0.29.jar)
+  team.chisel.ctm.client.asm.CTMTransformer
+	Profiler Position: N/A (disabled)
+	Player Count: 1 / 8; [EntityPlayerMP['Sidiopie'/256, l='Adventure', x=269.30, y=32.00, z=743.16]]
+	Type: Integrated Server (map_client.txt)
+	Is Modded: Definitely; Client brand changed to 'fml,forge'
